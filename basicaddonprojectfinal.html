@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width", initial-scale=1.0">
+    <title>Lets Bake</title>
+</head>
+<style>
+body{background: linear-gradient(135deg, rgb(252, 207, 49) 10%, rgb(245, 85, 85) 100%);}
+
+ h1 {
+        text-align: center;
+      }
+
+      h2 {
+        text-align: center;
+      }
+
+      button {
+        display: block;
+        margin: 0 auto;
+        border: 1px solid rgb(38, 38, 41);
+        background: white;
+        font-size: 20px;
+        border-radius: 15px;
+        padding: 10px 15px;
+        transition: all 150ms ease-in-out;
+      }
+.container{max-width: 600px;
+        margin: 20px auto;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        }
+
+        img {
+        max-width: 100%;}
+
+        footer {
+        text-align: center;
+        margin: 10px 0;
+        font-size: 23px;
+      }
+
+      .changeTheme {
+        font-size: 20px;
+        background: rgb(44, 43, 43);
+        color: white;
+        padding: 5 8px;
+        border-radius: 30px;
+      }
+
+      .changeTheme:hover {
+        color: black;
+        background: white;
+      }
+      .cake1 {
+        border-radius: 10px;
+        transition: all 150ms ease-in-out;
+        height: auto;
+        width: 100%;
+      }
+
+      .cake1:hover {
+        filter: contrast(90%);
+        transform: scale(1.1);
+      }
+      .grid {
+        margin: 15px 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-gap: 20px;
+      }
+
+      .grid img {
+        width:100%;
+        border-radius: 8px;
+        transition: all 150ms ease-in-out;
+        object-fit: cover;
+        height: 100%
+      }
+
+      .grid img:hover {
+        transform: scale(2);
+      }
+
+      .dark {
+        
+        background-image: url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/145/667/original/cake2.jpeg?1727620111);
+        background-repeat:no-repeat;
+        height: auto;
+        width: 100%;
+        background-size: cover;
+      }
+
+      .dark .container {
+        background:linear-gradient(to top, #1e3c72 0%, #1e3c72 1%, #2a5298 100%);
+        color:whitesmoke;
+      }
+     .dark a {
+        color: rgb(240, 169, 169);
+      }
+
+    p{line-height: 20px;}
+
+    .purchase {
+        margin: 0 auto;
+          display: block;
+          color:rgb(252, 121, 14);
+          font-size: 25px;
+          background:white;
+          padding: 15px 20px;
+          border:1px solid black;
+          border-radius: 30px 30px;
+          box-shadow: 2px 1px 1px rgb(206, 206, 203)
+          transition: all 200ms ease-in-out;
+      }
+      .purchase:hover {
+    color: rgb(19, 18, 18);
+    background:rgb(245, 144, 76);
+    cursor: pointer;
+      }
+      </style>
+<body>
+    <button class="changeTheme" >Dark theme</button>
+    <div class="container">
+    <h1>
+        Lets Bake: Carrot cake
+    </h1>
+    <h2>
+        I love carrot cake
+    </h2>
+    <p>
+     Carrot cake (also known as passion cake) is cake that contains carrots mixed into the batter.   <a href="https://en.wikipedia.org/wiki/Carrot_cake">Wikipedia</a> 
+    </p>
+    <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/145/675/original/cake6.jpeg?1727621452" alt="" class="cake1"/>
+<div class="grid">
+    <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/145/667/original/cake2.jpeg?1727620111" alt="" class="cake2"/>
+    <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/145/669/original/cake3.jpeg?1727620415" alt="" class="cake3"/>
+    <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/145/670/original/cake4.jpeg?1727620431" alt="" class="cake4"/>
+    <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/145/671/original/cake5.jpeg?1727620447" alt="" class="cake5">
+ </div>
+</br>
+   <a href="https://www.allrecipes.com/recipe/17393/best-carrot-cake-ever/">Get the recipe</a>
+   
+   <button class="purchase">Purchase Ingredients</button>
+   </div>
+    <Footer>
+    Coded by Hazel Vimbai
+</Footer>
+
+<script>
+function changeTheme() {
+        let body = document.querySelector("body");
+
+        //body.classList.toggle("dark");
+
+        if (body.classList.contains("dark")) {
+          body.classList.remove("dark");
+        } else {
+          body.classList.add("dark");
+        }
+      }
+function PurchaseIngredients() {
+        let name = prompt("What is your first name?");
+        let emailOrPhoneNumber = prompt("What is your email address or phone number?");
+
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const phonePattern = /^[0-9]{10}$/;
+
+        if (emailPattern.test(emailOrPhoneNumber)) {
+            alert( "Hi, " + name + "! Purchasing details have been sent to your email!");
+        } else if (phonePattern.test(emailOrPhoneNumber)) {
+            alert( "Hi, " + name + "! Our team will contact you shortly!");
+        } else {
+            alert( "Hi, " + name + "! Please enter a valid email or phone number.");
+        }
+    }
+let theme = "dark";
+     let themeButton = document.querySelector(".changeTheme");
+      themeButton.addEventListener("click", changeTheme);
+
+    let purchaseButton = document.querySelector(".purchase");
+    purchaseButton.addEventListener("click",PurchaseIngredients);
+
+</script>
+</body>
+</html>
